@@ -75,6 +75,6 @@ def tell_time(dt=None, hour=None, minute=None, part_of_day=True):
             suffix = u"'s middags"
         else:
             suffix = u"'s avonds"
-        s = "{0} {1}".format(s, suffix)
+        s = u"{0} {1}".format(s, suffix)
 
     return s

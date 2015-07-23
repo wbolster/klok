@@ -64,7 +64,7 @@ def test_datetime_module_support():
 
 
 @pytest.mark.parametrize(('hour', 'minute', 'expected'), [
-    (0, 0, "twaalf uur 's nachts"),
+    (0, 0, u"twaalf uur 's nachts"),
     (0, 10, u"tien over twaalf 's nachts"),
     (4, 55, u"vijf voor vijf 's nachts"),
     (5, 0, u"vijf uur 's nachts"),
@@ -73,13 +73,13 @@ def test_datetime_module_support():
     (6, 0, u"zes uur 's nachts"),
     (6, 3, u"drie over zes 's ochtends"),
     (11, 50, u"tien voor twaalf 's ochtends"),
-    (12, 0, "twaalf uur 's middags"),
-    (12, 30, "half een 's middags"),
-    (17, 00, "vijf uur 's middags"),
-    (17, 50, "tien voor zes 's middags"),
-    (18, 0, "zes uur 's middags"),
-    (18, 5, "vijf over zes 's avonds"),
-    (23, 55, "vijf voor twaalf 's avonds"),
+    (12, 0, u"twaalf uur 's middags"),
+    (12, 30, u"half een 's middags"),
+    (17, 00, u"vijf uur 's middags"),
+    (17, 50, u"tien voor zes 's middags"),
+    (18, 0, u"zes uur 's middags"),
+    (18, 5, u"vijf over zes 's avonds"),
+    (23, 55, u"vijf voor twaalf 's avonds"),
 ])
 def test_part_of_day(hour, minute, expected):
     actual = klok.tell_time(

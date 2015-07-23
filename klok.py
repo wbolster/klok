@@ -62,19 +62,23 @@ def tell_time(dt=None, hour=None, minute=None, part_of_day=True):
         s = u"{0} voor {1}".format(_spell_out(60 - minute), s_hour)
 
     if part_of_day:
-        n = hour * 100 + minute
-        if n <= 601:
-            # The phrase "zes uur 's nachts" is much more common than
-            # "zes uur 's ochtends".
-            suffix = u"'s nachts"
-        elif n < 1200:
-            suffix = u"'s ochtends"
-        elif n < 1801:
-            # The phrase "zes uur 's middags" is much more common than
-            # "zes uur 's avonds".
-            suffix = u"'s middags"
+        if hour == 0 and minute == 0:
+            # Spooky case, eh, special case.
+            s = u"middernacht"
         else:
-            suffix = u"'s avonds"
-        s = u"{0} {1}".format(s, suffix)
+            n = hour * 100 + minute
+            if n <= 601:
+                # The phrase "zes uur 's nachts" is much more common than
+                # "zes uur 's ochtends".
+                suffix = u"'s nachts"
+            elif n < 1200:
+                suffix = u"'s ochtends"
+            elif n < 1801:
+                # The phrase "zes uur 's middags" is much more common than
+                # "zes uur 's avonds".
+                suffix = u"'s middags"
+            else:
+                suffix = u"'s avonds"
+            s = u"{0} {1}".format(s, suffix)
 
     return s

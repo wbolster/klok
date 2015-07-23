@@ -64,7 +64,7 @@ def test_datetime_module_support():
 
 
 @pytest.mark.parametrize(('hour', 'minute', 'expected'), [
-    (0, 0, u"twaalf uur 's nachts"),
+    (0, 0, u"middernacht"),
     (0, 10, u"tien over twaalf 's nachts"),
     (4, 55, u"vijf voor vijf 's nachts"),
     (5, 0, u"vijf uur 's nachts"),
